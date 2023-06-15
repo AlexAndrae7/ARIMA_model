@@ -126,14 +126,14 @@ q:  the order of the MA term
 #choose 
 p = 4; d = 1; q = 2
 
-import arima
+import my_arima_functions
 
 #%%
 """Create Training and Test data set
 fraction    choose the fraction that will be used for training, default = 0.7 (70%)
 """
 
-train, valid = arima.training_validation(timeseries_data, target_column)
+train, valid = my_arima_functions.training_validation(timeseries_data, target_column)
 
 #%%
 
@@ -145,11 +145,11 @@ transparams     default = True, checks for stationarity
 """
 
 
-model, fitted, forecast, conf = arima.build_arima(train, valid, p = p, d = d, q = q)
+model, fitted, forecast, conf = my_arima_functions.build_arima(train, valid, p = p, d = d, q = q)
 
 """ plot model results
 plot for residuals, density of residuals, fitt vs actual and forecast vs actual
 """
-arima.plot_model(fitted, train, valid, p, d, q, forecast)
+my_arima_functions.plot_model(fitted, train, valid, p, d, q, forecast)
 
 
